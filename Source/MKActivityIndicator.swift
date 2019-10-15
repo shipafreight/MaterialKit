@@ -50,7 +50,7 @@ open class MKActivityIndicator: UIView {
         updatePath()
     }
 
-    open func startAnimating() {
+    @objc open func startAnimating() {
         if self.animating {
             return
         }
