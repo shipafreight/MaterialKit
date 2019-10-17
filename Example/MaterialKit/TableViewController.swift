@@ -27,7 +27,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return 100
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    private func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 65.0
     }
 

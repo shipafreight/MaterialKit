@@ -158,7 +158,7 @@ open class MKSnackbar: UIControl {
                 }, completion: {(finished: Bool) -> Void in
                     if finished {
                         self.isAnimating = false
-                        self.performDelegateAction(Selector("snackbarDismissed:"))
+                        self.performDelegateAction(#selector(MKSnackbarManager.snackbabrDismissed(_:)))
                         self.removeFromSuperview()
                         if let textLabel = self.textLabel, let actionButton = self.actionButton {
                             textLabel.removeFromSuperview()
@@ -401,7 +401,7 @@ private class MKSnackbarManager: NSObject, MKSnackbarDelegate {
     
     @objc fileprivate func snackbabrDismissed(_ snackbar: MKSnackbar) {
         if var snackbarQueue = snackbarQueue {
-            if let index = snackbarQueue.index(of: snackbar) {
+            if let index = snackbarQueue.firstIndex(of: snackbar) {
                 snackbarQueue.remove(at: index)
             }
             if snackbarQueue.count > 0 {

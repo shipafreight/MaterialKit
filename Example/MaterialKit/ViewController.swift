@@ -16,11 +16,11 @@ class ViewController: UIViewController {
         hamburgerButton.maskEnabled = false
         hamburgerButton.backgroundAnimationEnabled = false
         hamburgerButton.rippleDuration = 0.15
-        hamburgerButton.addTarget(self, action: Selector("toggleDrawer"), for: UIControl.Event.touchUpInside)
+        hamburgerButton.addTarget(self, action: #selector(toggleDrawer), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: hamburgerButton)
     }
 
-    func toggleDrawer() {
+    @objc func toggleDrawer() {
         if let sideDrawerViewController = self.sideDrawerViewController {
             sideDrawerViewController.toggleDrawer()
         }

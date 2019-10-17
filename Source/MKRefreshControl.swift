@@ -81,7 +81,7 @@ open class MKRefreshControl: UIControl {
         self.backgroundColor = UIColor.white
 
         self.rotation = 0
-        self.rotationIncrement = CGFloat(14 * M_PI / 8.0)
+        self.rotationIncrement = CGFloat(14 * .pi / 8.0)
         self.radius = 15.0
         let center = CGPoint(x: UIScreen.main.bounds.width / 2, y: self.height / 2)
 
@@ -92,7 +92,7 @@ open class MKRefreshControl: UIControl {
             animationView.addSubview(circleView)
 
             let circleViewCenter = CGPoint(x: self.radius, y: self.radius)
-            self.progressPath = UIBezierPath(arcCenter: circleViewCenter, radius: self.radius, startAngle: CGFloat(-M_PI), endAngle: CGFloat(M_PI), clockwise: true)
+            self.progressPath = UIBezierPath(arcCenter: circleViewCenter, radius: self.radius, startAngle: CGFloat(-Double.pi), endAngle: CGFloat(Double.pi), clockwise: true)
             self.progressLayer = CAShapeLayer()
             if let progressLayer = self.progressLayer, let progressPath = self.progressPath {
                 progressLayer.path = progressPath.cgPath
@@ -139,7 +139,7 @@ open class MKRefreshControl: UIControl {
                 circleView.alpha = pullDistance / self.height
                 progressLayer.strokeEnd = pullDistance / self.height * 0.9
             }
-            self.rotation = CGFloat(M_PI) * pullDistance / self.height * 0.5
+            self.rotation = CGFloat(Double.pi) * pullDistance / self.height * 0.5
             circleView.transform = CGAffineTransform(rotationAngle: self.rotation)
         }
     }
@@ -200,7 +200,7 @@ open class MKRefreshControl: UIControl {
         let rotationAnim = CABasicAnimation(keyPath: "transform.rotation.z")
         rotationAnim.fromValue = 0
         rotationAnim.duration = 4
-        rotationAnim.toValue = 2 * M_PI
+        rotationAnim.toValue = 2 * Double.pi
         rotationAnim.repeatCount = Float.infinity
         rotationAnim.isRemovedOnCompletion = false
 
